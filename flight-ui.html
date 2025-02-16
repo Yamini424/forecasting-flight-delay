@@ -1,0 +1,201 @@
+<html>
+ <head>
+  <title>
+   Forecasting Flight Delay
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+ </head>
+ <body class="bg-gray-100">
+  <div class="flex min-h-screen">
+   <!-- Left Image Section -->
+   <div class="w-1/2 h-full">
+    <img alt="A large airplane flying in a clear blue sky with some clouds" class="object-cover h-full w-full" src="https://storage.googleapis.com/a1aa/image/BmLUIZ3Qeu2g6O6Awu67gvYvCtIhZ_Tw0Nr6yYKVzqw.jpg"/>
+   </div>
+   <!-- Right Form Section -->
+   <div class="w-1/2 flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-3/4">
+     <h1 class="text-2xl font-bold mb-6">
+      Forecasting Flight Delay
+     </h1>
+     <form id="flight-info">
+      <div class="grid grid-cols-2 gap-4">
+       <div class="col-span-2">
+        <label class="block text-gray-700">
+         Enter Air Time (mins)
+        </label>
+        <input type="number" name="AirTime" class="w-full p-2 border border-gray-300 rounded mt-1" type="text"/>
+       </div>
+       <div class="col-span-2">
+        <label class="block text-gray-700">
+         Enter Distance (miles)
+        </label>
+        <input type="number" name="Distance" class="w-full p-2 border border-gray-300 rounded mt-1" type="text"/>
+       </div>
+       <div>
+        <label class="block text-gray-700">
+         Month
+        </label>
+        <select name="Month" class="w-full p-2 border border-gray-300 rounded mt-1">
+         <!-- Options from 1 to 12 -->
+         <option>1</option>
+         <option>2</option>
+         <option>3</option>
+         <option>4</option>
+         <option>5</option>
+         <option>6</option>
+         <option>7</option>
+         <option>8</option>
+         <option>9</option>
+         <option>10</option>
+         <option>11</option>
+         <option>12</option>
+        </select>
+       </div>
+       <div>
+        <label class="block text-gray-700">
+         Day of Month
+        </label>
+        <select name="DayOfMonth" class="w-full p-2 border border-gray-300 rounded mt-1">
+         <!-- Options from 1 to 31 -->
+         <option>1</option>
+         <option>2</option>
+         <option>3</option>
+         <option>4</option>
+         <option>5</option>
+         <option>6</option>
+         <option>7</option>
+         <option>8</option>
+         <option>9</option>
+         <option>10</option>
+         <option>11</option>
+         <option>12</option>
+         <option>13</option>
+         <option>14</option>
+         <option>15</option>
+         <option>16</option>
+         <option>17</option>
+         <option>18</option>
+         <option>19</option>
+         <option>20</option>
+         <option>21</option>
+         <option>22</option>
+         <option>23</option>
+         <option>24</option>
+         <option>25</option>
+         <option>26</option>
+         <option>27</option>
+         <option>28</option>
+         <option>29</option>
+         <option>30</option>
+         <option>31</option>
+        </select>
+       </div>
+       <div>
+        <label class="block text-gray-700">
+         Day of Week
+        </label>
+        <select name="DayOfWeek" class="w-full p-2 border border-gray-300 rounded mt-1">
+         <!-- Options from 1 to 7 -->
+         <option value=1>1 (Monday)</option>
+         <option value=2>2 (Tuesday)</option>
+         <option value=3>3 (Wednesday)</option>
+         <option value=4>4 (Thursday)</option>
+         <option value=5>5 (Friday)</option>
+         <option value=6>6 (Saturday)</option>
+         <option value=7>7 (Sunday)</option>
+        </select>
+       </div>
+       <div>
+        <label class="block text-gray-700">
+        Year
+        </label>
+        <select name="Year" class="w-full p-2 border border-gray-300 rounded mt-1">
+         <!-- Options from 2014 to 20177 -->
+         <option>2014</option>
+         <option>2015</option>
+         <option>2016</option>
+         <option>2017</option>
+        </select>
+       </div>
+       <div>
+        <label class="block text-gray-700">    
+         Origin Airport
+        </label>
+        <select name="Origin" class="w-full p-2 border border-gray-300 rounded mt-1">
+         <!-- Origin Airport Options -->
+         <option>ATL</option>
+         <option>CLT</option>
+         <option>DEN</option>
+         <option>DFW</option>
+         <option>IAH</option>
+         <option>LAX</option>
+         <option>ORD</option>
+         <option>PHX</option>
+         <option>SFO</option>
+        </select>
+       </div>
+       <div>
+        <label class="block text-gray-700">
+         Destination Airport
+        </label>
+        <select name="Dest" class="w-full p-2 border border-gray-300 rounded mt-1">
+         <!-- Destination Airport Options -->
+         <option>ATL</option>
+         <option>CLT</option>
+         <option>DEN</option>
+         <option>DFW</option>
+         <option>IAH</option>
+         <option>LAX</option>
+         <option>ORD</option>
+         <option>PHX</option>
+         <option>SFO</option>
+        </select>
+       </div>
+       <div class="col-span-2">
+        <label class="block text-gray-700">
+         Scheduled Departure Time (in minutes, e.g., 1230 for 12:30 PM)
+        </label>
+        <input type="number" name="CRSDepTime" class="w-full p-2 border border-gray-300 rounded mt-1" type="text"/>
+       </div>
+      </div>
+      <div class="mt-6">
+       <button class="w-full bg-blue-600 text-white p-2 rounded" type="submit">
+        Submit
+       </button>
+      </div>
+     </form>
+    </div>
+   </div>
+  </div>
+  <script>
+    document.getElementById("flight-info").addEventListener("submit", async function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Collect form data
+        const formData = new FormData(this);
+        const data = Object.entries(Object.fromEntries(formData.entries())).reduce((aggr, [key, value]) => {
+            return {...aggr, [key]: ['Origin', 'Dest'].includes(key) ? value : value ? parseInt(value, 10) : 0};
+        }, {}) // Convert to JSON object
+        console.log(data);
+
+        try {
+            const response = await fetch("http://127.0.0.1:5000/api/flight/delay/predict", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+            alert(result.message); // Show response
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Failed to submit the form.");
+        }
+    });
+</script>
+
+ </body>
+</html>
